@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master the art of Fettuccine Alfredo. A premium interactive step-by-step cooking experience with portion scaling, precise digital timers, and chef secrets.">
+    <title>La Ricetta Perfetta: Fettuccine Alfredo | Culinary Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Premium Navigation Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-main">Alfredo</span>
+                <span class="logo-sub">La Ricetta Perfetta</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#story" class="nav-link active">Our Story</a></li>
+                    <li><a href="#ingredients" class="nav-link">Ingredients</a></li>
+                    <li><a href="#steps" class="nav-link">Cooking Steps</a></li>
+                    <li><a href="#tips" class="nav-link">Chef's Tips</a></li>
+                </ul>
+            </nav>
+            <button class="nav-cta" onclick="document.getElementById('steps').scrollIntoView();">Start Cooking</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero" style="background-image: url('pasta_alfredo_hero.png');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Interactive Culinary Masterclass</span>
+                <h1 class="hero-title">Fettuccine<br><span>Alfredo</span></h1>
+                <p class="hero-description">Experience the rich, velvety Italian classic. Learn to balance authentic Parmigiano-Reggiano, warm butter, and fresh cream into the ultimate comfort dish.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="document.getElementById('ingredients').scrollIntoView();">View Recipe</button>
+                    <button class="btn-secondary" onclick="document.getElementById('story').scrollIntoView();">The Origin Story</button>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to Explore</span>
+            <div class="scroll-indicator-line"></div>
+        </div>
+    </section>
+
+    <!-- Story / Origin Section -->
+    <section class="story" id="story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-text">
+                    <span class="section-subtitle">Italian Legacy</span>
+                    <h2 class="section-title">The Legend of Rome</h2>
+                    <div class="section-divider" style="margin: 0 0 30px 0; justify-content: flex-start;">
+                        <span>1914, Via della Scrofa</span>
+                    </div>
+                    <p>Fettuccine Alfredo was created by Roman restaurateur Alfredo di Lelio in a heartfelt effort to entice his pregnant wife, Ines, to eat. He took extra-fine fettuccine, tossed it with triple butter and abundant Parmigiano-Reggiano, and served it warm.</p>
+                    <p>When Hollywood stars Douglas Fairbanks and Mary Pickford dined at his restaurant during their Roman honeymoon, they fell in love with the dish, spreading its fame across the globe and gifting Alfredo a gold fork and spoon.</p>
+                    <div class="story-highlight">
+                        "The simplest ingredients, executed with precision, create the most luxurious texture."
+                    </div>
+                </div>
+                <div class="story-image-wrapper">
+                    <img src="fettuccine_pasta.png" alt="Fresh Raw Fettuccine Pasta Nest" class="story-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Portion Scaler Section -->
+    <section class="scaler-section">
+        <div class="container scaler-wrapper">
+            <div class="scaler-info">
+                <h4>Custom Portions</h4>
+                <p>Adjust the quantities dynamically to match your guest count.</p>
+            </div>
+            <div class="scaler-control">
+                <span class="scaler-label">Servings</span>
+                <div class="scaler-options">
+                    <button class="scaler-btn" data-servings="2">2</button>
+                    <button class="scaler-btn active" data-servings="4">4</button>
+                    <button class="scaler-btn" data-servings="6">6</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="ingredients" id="ingredients">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Mis En Place</span>
+                <h2 class="section-title">The Required Ingredients</h2>
+                <div class="section-divider">
+                    <span>Quality First</span>
+                </div>
+            </div>
+
+            <div class="ingredients-grid">
+                <!-- Ingredient 1 -->
+                <div class="ingredient-card" id="card-fettuccine">
+                    <div class="ingredient-header">
+                        <span class="ingredient-title">Fettuccine Pasta</span>
+                        <div class="ingredient-qty-wrapper">
+                            <span class="ingredient-qty" id="qty-fettuccine" data-base="400">400</span>
+                            <span class="ingredient-unit">grams</span>
+                        </div>
+                    </div>
+                    <p class="ingredient-description">High-quality bronze-die extruded or fresh egg pasta works best to bind the velvety emulsion.</p>
+                    <label class="ingredient-checkbox">
+                        <input type="checkbox" onchange="toggleIngredientCard(this, 'card-fettuccine')">
+                        <span class="custom-checkbox"></span>
+                        <span>Prepared</span>
+                    </label>
+                    <img src="fettuccine_pasta.png" alt="Fettuccine Icon" class="ingredient-bg-img">
+                </div>
+
+                <!-- Ingredient 2 -->
+                <div class="ingredient-card" id="card-cheese">
+                    <div class="ingredient-header">
+                        <span class="ingredient-title">Parmigiano Cheese</span>
+                        <div class="ingredient-qty-wrapper">
+                            <span class="ingredient-qty" id="qty-cheese" data-base="150">150</span>
+                            <span class="ingredient-unit">grams</span>
+                        </div>
+                    </div>
+                    <p class="ingredient-description">Aged 24 months. Finely grated Parmigiano-Reggiano melts smoothly without clumping.</p>
+                    <label class="ingredient-checkbox">
+                        <input type="checkbox" onchange="toggleIngredientCard(this, 'card-cheese')">
+                        <span class="custom-checkbox"></span>
+                        <span>Prepared</span>
+                    </label>
+                    <img src="parmesan_cheese.png" alt="Cheese Icon" class="ingredient-bg-img">
+                </div>
+
+                <!-- Ingredient 3 -->
+                <div class="ingredient-card" id="card-butter">
+                    <div class="ingredient-header">
+                        <span class="ingredient-title">Unsalted Butter</span>
+                        <div class="ingredient-qty-wrapper">
+                            <span class="ingredient-qty" id="qty-butter" data-base="80">80</span>
+                            <span class="ingredient-unit">grams</span>
+                        </div>
+                    </div>
+                    <p class="ingredient-description">European-style butter with high butterfat content provides rich emulsification qualities.</p>
+                    <label class="ingredient-checkbox">
+                        <input type="checkbox" onchange="toggleIngredientCard(this, 'card-butter')">
+                        <span class="custom-checkbox"></span>
+                        <span>Prepared</span>
+                    </label>
+                </div>
+
+                <!-- Ingredient 4 -->
+                <div class="ingredient-card" id="card-cream">
+                    <div class="ingredient-header">
+                        <span class="ingredient-title">Heavy Cream</span>
+                        <div class="ingredient-qty-wrapper">
+                            <span class="ingredient-qty" id="qty-cream" data-base="200">200</span>
+                            <span class="ingredient-unit">ml</span>
+                        </div>
+                    </div>
+                    <p class="ingredient-description">Double cream or heavy whipping cream for standard thick and rich American-style sauce texture.</p>
+                    <label class="ingredient-checkbox">
+                        <input type="checkbox" onchange="toggleIngredientCard(this, 'card-cream')">
+                        <span class="custom-checkbox"></span>
+                        <span>Prepared</span>
+                    </label>
+                </div>
+
+                <!-- Ingredient 5 -->
+                <div class="ingredient-card" id="card-garlic">
+                    <div class="ingredient-header">
+                        <span class="ingredient-title">Garlic Cloves</span>
+                        <div class="ingredient-qty-wrapper">
+                            <span class="ingredient-qty" id="qty-garlic" data-base="3">3</span>
+                            <span class="ingredient-unit">cloves</span>
+                        </div>
+                    </div>
+                    <p class="ingredient-description">Finely minced. Sautéed very gently in melted butter to infuse a soft sweet flavor aroma.</p>
+                    <label class="ingredient-checkbox">
+                        <input type="checkbox" onchange="toggleIngredientCard(this, 'card-garlic')">
+                        <span class="custom-checkbox"></span>
+                        <span>Prepared</span>
+                    </label>
+                </div>
+
+                <!-- Ingredient 6 -->
+                <div class="ingredient-card" id="card-garnish">
+                    <div class="ingredient-header">
+                        <span class="ingredient-title">Garnish & Pepper</span>
+                        <div class="ingredient-qty-wrapper">
+                            <span class="ingredient-qty" id="qty-garnish" data-base="1">To taste</span>
+                            <span class="ingredient-unit">garnish</span>
+                        </div>
+                    </div>
+                    <p class="ingredient-description">Fresh flat-leaf parsley chopped finely, combined with fresh coarse toasted black pepper.</p>
+                    <label class="ingredient-checkbox">
+                        <input type="checkbox" onchange="toggleIngredientCard(this, 'card-garnish')">
+                        <span class="custom-checkbox"></span>
+                        <span>Prepared</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guided Steps Showcase Section -->
+    <section class="cooking-steps" id="steps">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Interactive Guide</span>
+                <h2 class="section-title">The Culinary Steps</h2>
+                <div class="section-divider">
+                    <span>Follow Chronologically</span>
+                </div>
+            </div>
+
+            <!-- Timeline Navigation Nodes -->
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+                <div class="timeline-progress" id="timeline-progress"></div>
+                
+                <div class="timeline-node active" onclick="goToStep(0)">
+                    <div class="timeline-dot">1</div>
+                    <span class="timeline-label">Boil Pasta</span>
+                </div>
+                <div class="timeline-node" onclick="goToStep(1)">
+                    <div class="timeline-dot">2</div>
+                    <span class="timeline-label">Melt Butter</span>
+                </div>
+                <div class="timeline-node" onclick="goToStep(2)">
+                    <div class="timeline-dot">3</div>
+                    <span class="timeline-label">Make Sauce</span>
+                </div>
+                <div class="timeline-node" onclick="goToStep(3)">
+                    <div class="timeline-dot">4</div>
+                    <span class="timeline-label">Emulsify</span>
+                </div>
+            </div>
+
+            <!-- Slideshow Container -->
+            <div class="step-container">
+                
+                <!-- Step 1 -->
+                <div class="step-slide active" data-step="0">
+                    <div class="step-header">
+                        <span class="step-number-title">Step 1 of 4</span>
+                        <span class="step-phase-tag">Preparation</span>
+                    </div>
+                    <div class="step-content-grid">
+                        <div class="step-info">
+                            <h3>Boil & Cook Fettuccine</h3>
+                            <p>Bring a large pot of water to a rolling boil. Salt it generously until it tastes like the ocean. Drop your fettuccine pasta in. Stir immediately to prevent the strands from sticking together.</p>
+                            <p>Boil the pasta for approximately 9 minutes, or until it reaches a perfect al dente state (tender with a firm core). Crucial tip: Reserve 1 cup of starchy pasta boiling water before draining!</p>
+                        </div>
+                        <div class="step-timer-wrapper">
+                            <div class="timer-box" id="timer-boil">
+                                <span class="timer-title">Boiling Timer</span>
+                                <div class="timer-display-wrapper">
+                                    <svg class="timer-svg">
+                                        <circle class="timer-svg-circle-bg" cx="70" cy="70" r="66"></circle>
+                                        <circle class="timer-svg-circle-progress" cx="70" cy="70" r="66" id="circle-progress-boil"></circle>
+                                    </svg>
+                                    <span class="timer-time-text" id="display-boil">09:00</span>
+                                </div>
+                                <div class="timer-controls">
+                                    <button class="timer-btn btn-play" onclick="toggleTimer('boil', 540)">Start</button>
+                                    <button class="timer-btn" onclick="resetTimer('boil', 540)">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-slide" data-step="1">
+                    <div class="step-header">
+                        <span class="step-number-title">Step 2 of 4</span>
+                        <span class="step-phase-tag">Aromatics</span>
+                    </div>
+                    <div class="step-content-grid">
+                        <div class="step-info">
+                            <h3>Melt Butter & Sauté Garlic</h3>
+                            <p>While the pasta boils, place a large deep skillet over medium-low heat. Add the unsalted butter and let it melt slowly without browning.</p>
+                            <p>Once the butter is melted and foaming slightly, add the finely minced garlic. Sauté very gently for about 2 minutes. The garlic should soften and smell extremely fragrant, but do not let it color or burn, as this ruins the cream's clean profile.</p>
+                        </div>
+                        <div class="step-timer-wrapper">
+                            <div class="timer-box" id="timer-garlic">
+                                <span class="timer-title">Sauté Timer</span>
+                                <div class="timer-display-wrapper">
+                                    <svg class="timer-svg">
+                                        <circle class="timer-svg-circle-bg" cx="70" cy="70" r="66"></circle>
+                                        <circle class="timer-svg-circle-progress" cx="70" cy="70" r="66" id="circle-progress-garlic"></circle>
+                                    </svg>
+                                    <span class="timer-time-text" id="display-garlic">02:00</span>
+                                </div>
+                                <div class="timer-controls">
+                                    <button class="timer-btn btn-play" onclick="toggleTimer('garlic', 120)">Start</button>
+                                    <button class="timer-btn" onclick="resetTimer('garlic', 120)">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-slide" data-step="2">
+                    <div class="step-header">
+                        <span class="step-number-title">Step 3 of 4</span>
+                        <span class="step-phase-tag">Sauce Base</span>
+                    </div>
+                    <div class="step-content-grid">
+                        <div class="step-info">
+                            <h3>Cream & Cheese Integration</h3>
+                            <p>Pour the heavy cream into the skillet containing garlic and butter. Stir well and increase the heat slightly to bring the cream to a gentle simmer.</p>
+                            <p>Simmer the sauce for about 3 minutes until it reduces slightly and thickens. Turn the heat down to low. Gradually whisk in your finely grated Parmigiano-Reggiano cheese in small handfuls, stirring constantly until the cheese melts and emulsifies into a smooth, velvety cream sauce.</p>
+                        </div>
+                        <div class="step-timer-wrapper">
+                            <div class="timer-box" id="timer-cream">
+                                <span class="timer-title">Simmer Timer</span>
+                                <div class="timer-display-wrapper">
+                                    <svg class="timer-svg">
+                                        <circle class="timer-svg-circle-bg" cx="70" cy="70" r="66"></circle>
+                                        <circle class="timer-svg-circle-progress" cx="70" cy="70" r="66" id="circle-progress-cream"></circle>
+                                    </svg>
+                                    <span class="timer-time-text" id="display-cream">03:00</span>
+                                </div>
+                                <div class="timer-controls">
+                                    <button class="timer-btn btn-play" onclick="toggleTimer('cream', 180)">Start</button>
+                                    <button class="timer-btn" onclick="resetTimer('cream', 180)">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-slide" data-step="3">
+                    <div class="step-header">
+                        <span class="step-number-title">Step 4 of 4</span>
+                        <span class="step-phase-tag">Emulsification</span>
+                    </div>
+                    <div class="step-content-grid">
+                        <div class="step-info">
+                            <h3>Combine, Toss & Garnish</h3>
+                            <p>Transfer the freshly cooked, drained fettuccine directly into the skillet with the velvety sauce. Turn off the heat completely (residual heat is enough to bind the cheese emulsion).</p>
+                            <p>Toss the pasta dynamically with tongs. If the sauce is too thick, splash in small amounts of the reserved starchy pasta water. The starch will emulsify with the fat, creating a silky coat over the pasta. Season with black pepper and fresh parsley. Serve immediately in warm bowls!</p>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <span style="font-size: 50px; color: var(--accent-gold); display: block; margin-bottom: 10px;">🍽️</span>
+                                <span style="font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-primary); font-weight: 600;">Buon Appetito!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step Navigation Footer -->
+                <div class="step-navigation">
+                    <button class="step-nav-btn" id="prev-btn" onclick="navigateStep(-1)" disabled>&larr; Previous Step</button>
+                    <div class="step-progress-indicator">
+                        Step <span id="current-step-num">1</span> of 4
+                    </div>
+                    <button class="step-nav-btn" id="next-btn" onclick="navigateStep(1)">Next Step &rarr;</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef's Tips / Secrets Section -->
+    <section class="chef-tips" id="tips">
+        <div class="container">
+            <div class="tips-grid">
+                <div>
+                    <span class="section-subtitle">Chef's Secrets</span>
+                    <h2 class="section-title">The Golden Rules of Alfredo</h2>
+                    <div class="section-divider" style="margin: 0 0 40px 0; justify-content: flex-start;">
+                        <span>Pro Cooking Techniques</span>
+                    </div>
+                    <div class="tips-card-deck">
+                        <div class="tip-card">
+                            <span class="tip-card-number">I</span>
+                            <h4>Emulsification is Key</h4>
+                            <p>Authentic Alfredo uses pasta water to emulsify the fat of cheese and butter. Avoid boiling cheese directly on high heat, which causes it to split and turn stringy.</p>
+                        </div>
+                        <div class="tip-card">
+                            <span class="tip-card-number">II</span>
+                            <h4>The Cheese Quality</h4>
+                            <p>Do not use pre-grated shaker cheese. It contains starch coating agents (cellulose) that prevent it from melting smoothly. Grate fresh Parmigiano on a microplane.</p>
+                        </div>
+                        <div class="tip-card">
+                            <span class="tip-card-number">III</span>
+                            <h4>Warm Bowls</h4>
+                            <p>Alfredo cools down rapidly due to the butterfat base. Serve it in pre-warmed bowls to preserve the silky flow of the sauce from the first bite to the last.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="pasta_alfredo_hero.png" alt="Finished Fettuccine Alfredo gourmet dish" class="tips-featured-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Rating & Feedback Form -->
+    <section class="rating-section" id="feedback">
+        <div class="container">
+            <div class="rating-container">
+                <h3>Rate the Culinary Experience</h3>
+                <p>Have you cooked this recipe? Share your rating and feedback below.</p>
+                
+                <div class="star-rating">
+                    <span class="star" data-value="1" onclick="rateRecipe(1)">★</span>
+                    <span class="star" data-value="2" onclick="rateRecipe(2)">★</span>
+                    <span class="star" data-value="3" onclick="rateRecipe(3)">★</span>
+                    <span class="star" data-value="4" onclick="rateRecipe(4)">★</span>
+                    <span class="star" data-value="5" onclick="rateRecipe(5)">★</span>
+                </div>
+
+                <form class="feedback-form" id="recipe-feedback-form" onsubmit="submitFeedback(event)">
+                    <textarea class="feedback-input" placeholder="Share your experience or adjustments..." required></textarea>
+                    <button type="submit" class="feedback-submit">Submit Review</button>
+                </form>
+
+                <div class="feedback-success-message" id="success-msg">
+                    Grazie! Your culinary feedback has been saved.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <span class="logo-main" style="color: var(--text-primary);">Alfredo</span>
+                <span class="logo-sub" style="display: block; font-size: 9px;">La Ricetta Perfetta</span>
+            </div>
+            <ul class="footer-nav">
+                <li><a href="#hero">Back to Top</a></li>
+                <li><a href="#story">Origin</a></li>
+                <li><a href="#ingredients">Ingredients</a></li>
+                <li><a href="#steps">Steps</a></li>
+            </ul>
+            <div class="footer-copyright">
+                &copy; 2026 La Ricetta Perfetta. Handcrafted by Antigravity.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Beep Asset for Timer -->
+    <audio id="timer-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-500.wav" preload="auto"></audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
